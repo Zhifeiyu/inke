@@ -7,6 +7,8 @@ import {
   ChevronDown,
   Heading1,
   LayoutPanelTop,
+  Leaf,
+  LeafyGreen,
   ListMinus,
   ListPlus,
   PartyPopper,
@@ -83,6 +85,16 @@ export const AISelector: FC<AISelectorProps> = ({
       detail: "Identify and fix repetitive words or phrases in the content",
       icon: Scissors,
     },
+    {
+      name: "Translate to simplified chinese",
+      detail: "Translate to simplified chinese",
+      icon: Leaf,
+    },
+    {
+      name: "Translate to english",
+      detail: "Translate to english",
+      icon: Leaf,
+    },
   ];
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -126,7 +138,8 @@ export const AISelector: FC<AISelectorProps> = ({
             }
             setIsOpen(!isOpen);
             editor.chain().blur().run();
-          }}>
+          }}
+        >
           <SprayCan className="novel-h-5 novel-w-5" />
           {isLoading ? (
             <PauseCircle
@@ -151,7 +164,8 @@ export const AISelector: FC<AISelectorProps> = ({
               complete(`${input.value}:\n ${text}`);
               setIsOpen(false);
             }}
-            className="novel-fixed novel-top-full novel-z-[99999] novel-mt-1 novel-flex novel-w-full novel-overflow-hidden novel-rounded novel-border novel-border-stone-200 novel-bg-white novel-p-1 novel-shadow-xl novel-animate-in novel-fade-in novel-slide-in-from-top-1">
+            className="novel-fixed novel-top-full novel-z-[99999] novel-mt-1 novel-flex novel-w-full novel-overflow-hidden novel-rounded novel-border novel-border-stone-200 novel-bg-white novel-p-1 novel-shadow-xl novel-animate-in novel-fade-in novel-slide-in-from-top-1"
+          >
             <input
               ref={inputRef}
               type="text"
@@ -176,7 +190,8 @@ export const AISelector: FC<AISelectorProps> = ({
                       setIsOpen(false);
                     }
                   }}
-                  className="novel-flex group novel-cursor-pointer novel-items-center novel-justify-between novel-rounded-sm novel-px-2 novel-py-1 novel-text-sm novel-text-gray-600 active:novel-bg-stone-200 aria-selected:novel-bg-stone-100">
+                  className="novel-flex group novel-cursor-pointer novel-items-center novel-justify-between novel-rounded-sm novel-px-2 novel-py-1 novel-text-sm novel-text-gray-600 active:novel-bg-stone-200 aria-selected:novel-bg-stone-100"
+                >
                   <div className="novel-flex novel-items-center novel-space-x-2">
                     <item.icon className="novel-h-4 novel-w-4 novel-text-cyan-500" />
                     <span>{item.name}</span>
